@@ -1,3 +1,7 @@
+<?php 
+include ("Conexion.php");
+$nametable="SELECT * FROM usuario";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="about.html">Horarios</a>
+            <a class="nav-link text-uppercase text-expanded" href="about.php">Horarios</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="products.html">Informacion</a>
@@ -67,30 +71,47 @@
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                     <th scope="col">Nº</th>
+                    <th scope="col">Id Usuario</th>
+                    <th scope="col">CI</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Nº Mesa</th>
+                    <th scope="col">Acciones</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
+                    <td> <button type="button" class="btn btn-info">Editar</button></td>
+                    <td><button type="button" class="btn btn-danger">Borrar</button></td>
+                    <td><button type="button" class="btn btn-success">Añadir</button></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -98,30 +119,34 @@
               <table class="table">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                  <th scope="col">Nº</th>
+                    <th scope="col">Id Usuario</th>
+                    <th scope="col">CI</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Nº Mesa</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                    <td>{{$value->idUsuario}}</td>
+                    <td>{{$value->ci}}</td>
+                    <td>{{$value->fechaNacimiento}}</td>
+                    <td>{{$value->idMesa}}</td>
                   </tr>
                 </tbody>
               </table>

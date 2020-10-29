@@ -14,7 +14,7 @@ class Conexion extends PDO
     {
         try {
             parent::__construct($this->tipoDB.':host='.$this->servidor.';dbname='.$this->db, $this->user, $this->password);
-            echo "Conexion exitosa"." ";
+            echo "Conexion exitosa"." nil";
         } catch (PDOException $e ) {
             echo 'ERROR: No se logro hacer una conexion a la Base de Datos - '.$e->getMessage();
             exit;
