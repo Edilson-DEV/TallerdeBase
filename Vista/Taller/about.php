@@ -1,7 +1,19 @@
 <?php 
 include ("Conexion.php");
+$conexion=new Conexion();
+
 $nametable="SELECT * FROM usuario";
+
+
+		$cmd = $conexion->prepare($nametable);
+    $cmd->execute();
+    
+    $listaDeusuarios = $cmd->fetchAll();
+    var_dump($listaDeusuarios);
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,51 +80,40 @@ $nametable="SELECT * FROM usuario";
         <div class="row">
           <div class="col-xl-9 col-lg-10 mx-auto">
             <div class="bg-faded rounded p-5">
+            <div class="row"><div class="col-md-10"></div><div class="col-md-2"><button type="button" class="btn btn-success">Añadir</button></div></div>
+
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
                      <th scope="col">Nº</th>
-                    <th scope="col">Id Usuario</th>
+                    <!--  <th scope="col">Id Usuario</th>-->
                     <th scope="col">CI</th>
                     <th scope="col">Fecha de Nacimiento</th>
                     <th scope="col">Nº Mesa</th>
-                    <th scope="col">Acciones</th>
                     <th scope="col"></th>
+                    <th scope="col">Acciones</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php 
+                       foreach($listaDeusuarios as $key=>$usuario){
+
+                       
+                
+                ?>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>{{$value->idUsuario}}</td>
-                    <td>{{$value->ci}}</td>
-                    <td>{{$value->fechaNacimiento}}</td>
-                    <td>{{$value->idMesa}}</td>
+                    <th scope="row"><?php echo($key+1);?></th>
+                  <!--  <td><?php echo($usuario['idUsuario']);?></td>-->
+                    <td><?php echo($usuario['ci']);?></td>
+                    <td><?php echo($usuario['fechaNacimiento']);?></td>
+                    <td><?php echo($usuario['idMesa']);?></td>
                     <td> <button type="button" class="btn btn-info">Editar</button></td>
                     <td><button type="button" class="btn btn-danger">Borrar</button></td>
-                    <td><button type="button" class="btn btn-success">Añadir</button></td>
+               
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>{{$value->idUsuario}}</td>
-                    <td>{{$value->ci}}</td>
-                    <td>{{$value->fechaNacimiento}}</td>
-                    <td>{{$value->idMesa}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>{{$value->idUsuario}}</td>
-                    <td>{{$value->ci}}</td>
-                    <td>{{$value->fechaNacimiento}}</td>
-                    <td>{{$value->idMesa}}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>{{$value->idUsuario}}</td>
-                    <td>{{$value->ci}}</td>
-                    <td>{{$value->fechaNacimiento}}</td>
-                    <td>{{$value->idMesa}}</td>
-                  </tr>
+                       <?php }?>
+
                 </tbody>
               </table>
               
