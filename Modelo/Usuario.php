@@ -12,6 +12,7 @@ private $fechaNacimiento;
     //constructor
     function __construct()
     {
+    }
     //funciones SET del Usuario, se colocan los datos
     public function setIdUsuario($idUsuario){$this->idUsuario = $idUsuario;}
     public function setIdMesa($idMesa){$this->idMesa = $idMesa;}
@@ -25,5 +26,4 @@ private $fechaNacimiento;
     public function getIdRecintoVotacion(){return $this->idRecintoVotacion;}
     public function getCi(){return $this->ci;}
     public function getFechaNacimiento(){return $this->fechaNacimiento;}
-    
 }
