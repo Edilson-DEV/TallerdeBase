@@ -1,13 +1,19 @@
 <?php
-include("../Modelo/Conexion.php");
-$conexion = new Conexion();
+//include("Conexion.php");
+//$conexion = new Conexion();
 
-$nametable = "SELECT * FROM usuario u INNER JOIN mesa m ON u.idMesa = m.idMesa JOIN horario h on u.idHorario = h.idHorario;";
+//$nametable = "SELECT * FROM usuario u INNER JOIN mesa m ON u.idMesa = m.idMesa JOIN horario h on u.idHorario = h.idHorario;";
 
-$cmd = $conexion->prepare($nametable);
-$cmd->execute();
-$listaDeusuarios = $cmd->fetchAll();
+//$cmd = $conexion->prepare($nametable);
+//$cmd->execute();
+//$listaDeusuarios = $cmd->fetchAll();
 
+require_once("../Controlador/LNListaUsuario.php");
+require_once("../Modelo/DBUsuario.php");
+
+$objLNListaUsuario = new LNListaUsuario();
+$listaDeusuarios = $objLNListaUsuario->listaDeUsuarios();
+//print_r ($listaDeusuarios);
 ?>
 
 
@@ -113,9 +119,9 @@ $listaDeusuarios = $cmd->fetchAll();
                   <td><?php echo($usuario['idMesa']); ?></td>
                   <td><?php echo($usuario['hora']); ?></td>
                   <td>
-                    <button type="button" class="btn btn-info">Editar</button>
+                  <a class="btn btn-info" href="../Controlador/LNEliminarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>">Editar</a>
                   </td>
-                  <td><a href="" class="btn btn-outline-danger">Eliminar</a></td>
+                  <td><a href="../Controlador/LNEliminarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>" class="btn btn-outline-danger">Eliminar</a></td>
 
                 </tr>
               <?php } ?>

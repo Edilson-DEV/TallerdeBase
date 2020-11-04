@@ -12,14 +12,45 @@ class DBUsuario
 
     public function listaDeUsuarios()
     {
-        $sqlListaDeUsuarios = "select u.ci,u.fechaNacimiento,h.hora,m.mesa,u.idUsuario
-from  mesa m inner join usuario u on m.idMesa = u.idMesa  inner join  horario h on u.idUsuario = h.idUsuario;";
+        $sqlListaDeUsuarios= "SELECT * FROM usuario u INNER JOIN mesa m ON u.idMesa = m.idMesa JOIN horario h on u.idHorario = h.idHorario;";
+
+        //$sqlListaDeUsuarios = "select u.ci,u.fechaNacimiento,h.hora,m.mesa,u.idUsuario
+//from  mesa m inner join usuario u on m.idMesa = u.idMesa  inner join  horario h on u.idUsuario = h.idUsuario;";
         $cmd = $this->conexion->prepare($sqlListaDeUsuarios);
         $cmd->execute();
         $listadeUsuariosConsulta=$cmd->fetchAll();
         return $listadeUsuariosConsulta;
     }
+    
+//validando el nit de empresa para la actualizacion
+       
 
+    public function registrarUsuario($ci, $fechaNacimiento, $idMesa,$idHorario)
+    {
+        echo "ci--> ".$ci."<br>";
+        echo "fecha de nacimiento--> ".$fechaNacimiento."<br>";
+        echo "ci--> ".$idMesa."<br>";
+        echo "ci--> ".$idHorario."<br>";
+
+        $sqlInsertarEmpresa = "
+            INSERT INTO usuario(ci,fechaNacimiento,idMesa,idHorario)
+            VALUES(".$ci.",'".$fechaNacimiento."',".$idMesa.",".$idHorario.");";
+            echo $sqlInsertarEmpresa;
+
+        try {
+            $cmd = $this->conexion->prepare($sqlInsertarEmpresa);
+
+            if ($cmd->execute()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (PDOException $e) {
+            echo 'ERROR: No se logro realizar la nueva inserción - ' . $e->getMesage();
+            exit();
+            return 0;
+        }
+    }
     public function EliminarUsuario($idUsuario)
     {
         $sqlEliminarUsuario = "DELETE FROM usuario WHERE idUsuario = :idUsuario;";

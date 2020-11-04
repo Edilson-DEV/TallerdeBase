@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once("../Modelo/DBUsuario.php");
 //require_once ("./Modelo/Conexion.php");
 

@@ -12,4 +12,4 @@ if($exitoEliminarUsuario==1){
 }
 ?>
 <br>
-<h3 title = " Lista De Usuario"> <a href="../Vista/IUListaUsuario.php">Lista de Usuario</a></h3>
+<h3 title = " Lista De Usuario"> <a href="../Vista/about.php">Lista de Usuario</a></h3>
