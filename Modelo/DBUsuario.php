@@ -10,46 +10,29 @@ class DBUsuario
         $this->conexion = new Conexion();
     }
 
-        public function listaDeEmpresas()
-        {  
-            $sqlListaDeEmpresas = "SELECT e.*
-FROM empresa e 
-GROUP BY e.idEmpresa
-ORDER BY e.nombre ASC;";
-            $cmd = $this->conexion->prepare($sqlListaDeEmpresas);
-            $cmd->execute();
-            $listaDeEmpresasConsulta = $cmd->fetchAll();
-            return $listaDeEmpresasConsulta;
-        }
-        
-    
-//validando el nit de empresa para la actualizacion
-       
-
-    public function registrarUsuario($ci, $fechaNacimiento, $idMesa,$idHorario)
+    public function listaDeUsuarios()
     {
-        echo "ci--> ".$ci."<br>";
-        echo "fecha de nacimiento--> ".$fechaNacimiento."<br>";
-        echo "ci--> ".$idMesa."<br>";
-        echo "ci--> ".$idHorario."<br>";
+        $sqlListaDeUsuarios = "select u.ci,u.fechaNacimiento,h.hora,m.mesa,u.idUsuario
+from  mesa m inner join usuario u on m.idMesa = u.idMesa  inner join  horario h on u.idUsuario = h.idUsuario;";
+        $cmd = $this->conexion->prepare($sqlListaDeUsuarios);
+        $cmd->execute();
+        $listadeUsuariosConsulta=$cmd->fetchAll();
+        return $listadeUsuariosConsulta;
+    }
 
-        $sqlInsertarEmpresa = "
-            INSERT INTO usuario(ci,fechaNacimiento,idMesa,idHorario)
-            VALUES(".$ci.",'".$fechaNacimiento."',".$idMesa.",".$idHorario.");";
-            echo $sqlInsertarEmpresa;
+    public function EliminarUsuario($idUsuario)
+    {
+        $sqlEliminarUsuario = "DELETE FROM usuario WHERE idUsuario = :idUsuario;";
 
-        try {
-            $cmd = $this->conexion->prepare($sqlInsertarEmpresa);
 
-            if ($cmd->execute()) {
-                return 1;
-            } else {
-                return 0;
-            }
-        } catch (PDOException $e) {
-            echo 'ERROR: No se logro realizar la nueva inserción - ' . $e->getMesage();
-            exit();
+        $cmd = $this->conexion->prepare($sqlEliminarUsuario);
+        $cmd->bindParam(':idUsuario', $idUsuario);
+
+        if ($cmd->execute()) {
+            return 1;
+        } else {
             return 0;
         }
+
     }
 }

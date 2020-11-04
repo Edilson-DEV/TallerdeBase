@@ -1,5 +1,5 @@
 <?php
-include("Conexion.php");
+include("../Modelo/Conexion.php");
 $conexion = new Conexion();
 
 $nametable = "SELECT * FROM usuario u INNER JOIN mesa m ON u.idMesa = m.idMesa JOIN horario h on u.idHorario = h.idHorario;";
