@@ -2,14 +2,12 @@
 include("Conexion.php");
 $conexion = new Conexion();
 
-$nametable = "SELECT * FROM usuario";
-
+$nametable = "SELECT * FROM usuario u INNER JOIN mesa m ON u.idMesa = m.idMesa JOIN horario h on u.idHorario = h.idHorario;";
 
 $cmd = $conexion->prepare($nametable);
 $cmd->execute();
-
 $listaDeusuarios = $cmd->fetchAll();
-var_dump($listaDeusuarios);
+
 ?>
 
 
@@ -59,7 +57,7 @@ var_dump($listaDeusuarios);
           <a class="nav-link text-uppercase text-expanded" href="products.html">Informacion</a>
         </li>
         <li class="nav-item active px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="store.html">Registro</a>
+          <a class="nav-link text-uppercase text-expanded" href="store.php">Registro</a>
         </li>
       </ul>
     </div>
@@ -82,7 +80,7 @@ var_dump($listaDeusuarios);
             <div class="row">
               <div class="col-md-10"></div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-success">Añadir</button>
+               <a href="IURegistroUsuario.php"> <button type="button"  class="btn btn-success">Añadir</button></a>
               </div>
             </div>
 
@@ -94,6 +92,8 @@ var_dump($listaDeusuarios);
                 <th scope="col">CI</th>
                 <th scope="col">Fecha de Nacimiento</th>
                 <th scope="col">Nº Mesa</th>
+                <th scope="col">Horario</th>
+
                 <th scope="col"></th>
                 <th scope="col">Acciones</th>
                 <th scope="col"></th>
@@ -111,6 +111,7 @@ var_dump($listaDeusuarios);
                   <td><?php echo($usuario['ci']); ?></td>
                   <td><?php echo($usuario['fechaNacimiento']); ?></td>
                   <td><?php echo($usuario['idMesa']); ?></td>
+                  <td><?php echo($usuario['hora']); ?></td>
                   <td>
                     <button type="button" class="btn btn-info">Editar</button>
                   </td>
@@ -122,40 +123,7 @@ var_dump($listaDeusuarios);
               </tbody>
             </table>
 
-            <table class="table">
-              <thead class="thead-light">
-              <tr>
-                <th scope="col">Nº</th>
-                <th scope="col">Id Usuario</th>
-                <th scope="col">CI</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Nº Mesa</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>{{$value->idUsuario}}</td>
-                <td>{{$value->ci}}</td>
-                <td>{{$value->fechaNacimiento}}</td>
-                <td>{{$value->idMesa}}</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>{{$value->idUsuario}}</td>
-                <td>{{$value->ci}}</td>
-                <td>{{$value->fechaNacimiento}}</td>
-                <td>{{$value->idMesa}}</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>{{$value->idUsuario}}</td>
-                <td>{{$value->ci}}</td>
-                <td>{{$value->fechaNacimiento}}</td>
-                <td>{{$value->idMesa}}</td>
-              </tr>
-              </tbody>
-            </table>
+
           </div>
         </div>
       </div>

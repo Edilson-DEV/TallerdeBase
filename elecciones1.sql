@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS elecciones;
-CREATE DATABASE IF NOT EXISTS elecciones;
-USE elecciones;
+DROP DATABASE IF EXISTS elecciones1;
+CREATE DATABASE IF NOT EXISTS elecciones1;
+USE elecciones1;
 
 CREATE TABLE departamento(
     idDepartamento INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,22 +37,25 @@ CREATE TABLE registro(
     FOREIGN KEY(idMesa) REFERENCES mesa(idMesa) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
+CREATE TABLE horario(
+    idHorario INT AUTO_INCREMENT PRIMARY KEY,
+    hora  datetime not null
+
+)ENGINE=InnoDB;
+
 CREATE TABLE usuario(
     idUsuario INT AUTO_INCREMENT PRIMARY KEY,
     ci varchar(15) NOT NULL,
     fechaNacimiento DATE NOT NULL,
     idMesa int not null,
 #     idRecintoVotacion int not null,
-    FOREIGN KEY(idMesa) REFERENCES mesa(idMesa) ON UPDATE CASCADE ON DELETE CASCADE
+      idHorario int not null,
+    FOREIGN KEY(idMesa) REFERENCES mesa(idMesa) ON UPDATE CASCADE ON DELETE CASCADE,
 #     FOREIGN KEY(idRecintoVotacion) REFERENCES recintoVotacion(idRecintoVotacion) ON UPDATE CASCADE ON DELETE CASCADE
+    FOREIGN KEY(idHorario) REFERENCES horario(idHorario) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
-CREATE TABLE horario(
-    idHorario INT AUTO_INCREMENT PRIMARY KEY,
-    hora  datetime not null,
-    idUsuario int not null,
-    FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) ON UPDATE CASCADE ON DELETE CASCADE
-)ENGINE=InnoDB;
+
 
 -- Departamen
 # VALUES (1,'administrador');
