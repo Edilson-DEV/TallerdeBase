@@ -54,7 +54,6 @@ CREATE TABLE horario(
     FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
 
--- Departamen
-# VALUES (1,'administrador');
-select  *
-from departamento
+-- lista de usuario
+select u.ci,u.fechaNacimiento,h.hora,m.mesa,u.idUsuario
+from  mesa m inner join usuario u on m.idMesa = u.idMesa  inner join  horario h on u.idUsuario = h.idUsuario
