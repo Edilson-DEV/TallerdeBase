@@ -6,7 +6,7 @@ $objetoUsuario = new DBUsuario();
 $exitoEliminarUsuario = $objetoUsuario->EliminarUsuario($_REQUEST['idUsuario']);
 
 if($exitoEliminarUsuario==1){
-    echo "los datos del empresa se eliminaron correctamente";
+    echo "los datos de usuario se eliminaron correctamente";
 }else{
     echo "Error al eliminar datos dela empresa";
 }

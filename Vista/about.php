@@ -1,5 +1,5 @@
 <?php
-include("Conexion.php");
+include("../Modelo/Conexion.php");
 $conexion = new Conexion();
 
 $nametable = "SELECT * FROM usuario";
@@ -66,102 +66,102 @@ var_dump($listaDeusuarios);
   </div>
 </nav>
 <!-- FIN Navigation -->
-<body>
-<h1 class="site-heading text-center text-white d-none d-lg-block">
-  <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>
-  <span class="site-heading-lower">Business Casual</span>
-</h1>
-
-
-<section class="page-section about-heading">
-  <div class="container">
-    <div class="about-heading-content">
-      <div class="row">
-        <div class="col-xl-9 col-lg-10 mx-auto">
-          <div class="bg-faded rounded p-5">
-            <div class="row">
-              <div class="col-md-10"></div>
-              <div class="col-md-2">
-                <button type="button" class="btn btn-success">Añadir</button>
-              </div>
-            </div>
-
-            <table class="table">
-              <thead class="thead-dark">
-              <tr>
-                <th scope="col">Nº</th>
-                <!--  <th scope="col">Id Usuario</th>-->
-                <th scope="col">CI</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Nº Mesa</th>
-                <th scope="col"></th>
-                <th scope="col">Acciones</th>
-                <th scope="col"></th>
-              </tr>
-              </thead>
-              <tbody>
-              <?php
-              foreach ($listaDeusuarios as $key => $usuario) {
-
-
-                  ?>
-                <tr>
-                  <th scope="row"><?php echo($key + 1); ?></th>
-                  <!--  <td><?php echo($usuario['idUsuario']); ?></td>-->
-                  <td><?php echo($usuario['ci']); ?></td>
-                  <td><?php echo($usuario['fechaNacimiento']); ?></td>
-                  <td><?php echo($usuario['idMesa']); ?></td>
-                  <td>
-                    <button type="button" class="btn btn-info">Editar</button>
-                  </td>
-                  <td><a href="" class="btn btn-outline-danger">Eliminar</a></td>
-
-                </tr>
-              <?php } ?>
-
-              </tbody>
-            </table>
-
-            <table class="table">
-              <thead class="thead-light">
-              <tr>
-                <th scope="col">Nº</th>
-                <th scope="col">Id Usuario</th>
-                <th scope="col">CI</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Nº Mesa</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>{{$value->idUsuario}}</td>
-                <td>{{$value->ci}}</td>
-                <td>{{$value->fechaNacimiento}}</td>
-                <td>{{$value->idMesa}}</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>{{$value->idUsuario}}</td>
-                <td>{{$value->ci}}</td>
-                <td>{{$value->fechaNacimiento}}</td>
-                <td>{{$value->idMesa}}</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>{{$value->idUsuario}}</td>
-                <td>{{$value->ci}}</td>
-                <td>{{$value->fechaNacimiento}}</td>
-                <td>{{$value->idMesa}}</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!--<body>-->
+<!--<h1 class="site-heading text-center text-white d-none d-lg-block">-->
+<!--  <span class="site-heading-upper text-primary mb-3">A Free Bootstrap 4 Business Theme</span>-->
+<!--  <span class="site-heading-lower">Business Casual</span>-->
+<!--</h1>-->
+<!---->
+<!---->
+<!--<section class="page-section about-heading">-->
+<!--  <div class="container">-->
+<!--    <div class="about-heading-content">-->
+<!--      <div class="row">-->
+<!--        <div class="col-xl-9 col-lg-10 mx-auto">-->
+<!--          <div class="bg-faded rounded p-5">-->
+<!--            <div class="row">-->
+<!--              <div class="col-md-10"></div>-->
+<!--              <div class="col-md-2">-->
+<!--                <button type="button" class="btn btn-success">Añadir</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!---->
+<!--            <table class="table">-->
+<!--              <thead class="thead-dark">-->
+<!--              <tr>-->
+<!--                <th scope="col">Nº</th>-->
+<!--                <!--  <th scope="col">Id Usuario</th>-->-->
+<!--                <th scope="col">CI</th>-->
+<!--                <th scope="col">Fecha de Nacimiento</th>-->
+<!--                <th scope="col">Nº Mesa</th>-->
+<!--                <th scope="col"></th>-->
+<!--                <th scope="col">Acciones</th>-->
+<!--                <th scope="col"></th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              --><?php
+//              foreach ($listaDeusuarios as $key => $usuario) {
+//
+//
+//                  ?>
+<!--                <tr>-->
+<!--                  <th scope="row">--><?php //echo($key + 1); ?><!--</th>-->
+<!--                  <!--  <td>--><?php //echo($usuario['idUsuario']); ?><!--</td>-->-->
+<!--                  <td>--><?php //echo($usuario['ci']); ?><!--</td>-->
+<!--                  <td>--><?php //echo($usuario['fechaNacimiento']); ?><!--</td>-->
+<!--                  <td>--><?php //echo($usuario['idMesa']); ?><!--</td>-->
+<!--                  <td>-->
+<!--                    <button type="button" class="btn btn-info">Editar</button>-->
+<!--                  </td>-->
+<!--                  <td><a href="" class="btn btn-outline-danger">Eliminar</a></td>-->
+<!---->
+<!--                </tr>-->
+<!--              --><?php //} ?>
+<!---->
+<!--              </tbody>-->
+<!--            </table>-->
+<!---->
+<!--            <table class="table">-->
+<!--              <thead class="thead-light">-->
+<!--              <tr>-->
+<!--                <th scope="col">Nº</th>-->
+<!--                <th scope="col">Id Usuario</th>-->
+<!--                <th scope="col">CI</th>-->
+<!--                <th scope="col">Fecha de Nacimiento</th>-->
+<!--                <th scope="col">Nº Mesa</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr>-->
+<!--                <th scope="row">1</th>-->
+<!--                <td>{{$value->idUsuario}}</td>-->
+<!--                <td>{{$value->ci}}</td>-->
+<!--                <td>{{$value->fechaNacimiento}}</td>-->
+<!--                <td>{{$value->idMesa}}</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th scope="row">2</th>-->
+<!--                <td>{{$value->idUsuario}}</td>-->
+<!--                <td>{{$value->ci}}</td>-->
+<!--                <td>{{$value->fechaNacimiento}}</td>-->
+<!--                <td>{{$value->idMesa}}</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th scope="row">3</th>-->
+<!--                <td>{{$value->idUsuario}}</td>-->
+<!--                <td>{{$value->ci}}</td>-->
+<!--                <td>{{$value->fechaNacimiento}}</td>-->
+<!--                <td>{{$value->idMesa}}</td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
 
 <footer class="footer text-faded text-center py-5">
   <div class="container">
