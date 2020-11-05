@@ -31,6 +31,7 @@ class DBUsuario
         echo "fecha de nacimiento--> ".$fechaNacimiento."<br>";
         echo "ci--> ".$idMesa."<br>";
         echo "ci--> ".$idHorario."<br>";
+        
 
         $sqlInsertarEmpresa = "
             INSERT INTO usuario(ci,fechaNacimiento,idMesa,idHorario)
@@ -67,3 +68,5 @@ class DBUsuario
 
     }
 }
+?>
+<br><h3 title="Volver Lista de Usuarios"><a href="../Vista/about.php">Lista de Usuarios</a></h3>

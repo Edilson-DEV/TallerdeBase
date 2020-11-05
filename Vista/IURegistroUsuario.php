@@ -69,7 +69,7 @@
             <h2 class="section-heading mb-5">
 
               <h2 class="main-title">
-                <span>Registro</span><br>
+                <span>Registro de Usuarios</span><br>
 
               </h2>
               <div class="share-box">
@@ -114,7 +114,7 @@
                   </div>
                  
                   <div class="col-md-12 col-sm-12 col-day">
-                  <input type="date" id="start" name="fechaNacimiento">
+                  <input type="date" id="start" name="fechaNacimiento" value="1999-07-22"  min="1950-01-01" max="2002-01-01" >
 
                   </div>
 

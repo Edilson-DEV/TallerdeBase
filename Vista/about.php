@@ -119,7 +119,7 @@ $listaDeusuarios = $objLNListaUsuario->listaDeUsuarios();
                   <td><?php echo($usuario['idMesa']); ?></td>
                   <td><?php echo($usuario['hora']); ?></td>
                   <td>
-                  <a class="btn btn-info" href="../Controlador/LNEliminarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>">Editar</a>
+                  <a class="btn btn-info" href="IUActualizarUsuario.php">Editar</a>
                   </td>
                   <td><a href="../Controlador/LNEliminarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>" class="btn btn-outline-danger">Eliminar</a></td>
 

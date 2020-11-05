@@ -113,7 +113,7 @@
                   </div>
                  
                   <div class="col-md-12 col-sm-12 col-day">
-                  <input type="date" id="start" name="fechaNacimiento">
+                  <input type="date" id="start" value="1999-07-22"  min="1950-01-01" max="2002-01-01" name="fechaNacimiento">
 
                   </div>
 
