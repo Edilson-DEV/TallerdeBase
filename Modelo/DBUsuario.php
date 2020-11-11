@@ -37,7 +37,7 @@ class DBUsuario
             INSERT INTO usuario(ci,fechaNacimiento,idMesa,idHorario)
             VALUES(".$ci.",'".$fechaNacimiento."',".$idMesa.",".$idHorario.");";
             echo $sqlInsertarEmpresa;
-
+// jdfhgdjghfg
         try {
             $cmd = $this->conexion->prepare($sqlInsertarEmpresa);
 
