@@ -2,7 +2,7 @@
 
 	//require_once ("../Controlador/LNActualizarUsuario.php");
 	//$objLNListaEmpresa = new LNListaEmpresa();
-	//$datosEmpresa = $objLNListaEmpresa->datosEmpresa($_REQUEST['idEmpresa']);
+	//$datos= $objLNListaEmpresa->datosEmpresa($_REQUEST['idEmpresa']);
 ?>
 
 <!DOCTYPE html>
@@ -78,13 +78,13 @@
     <form action="../Controlador/LNActualizarUsuario.php" method="post" name="   " enctype="multipart/form-data" >
         
 
-        <input type="hidden" name="idEmpresa" value="<?php echo $datosEmpresa['idEmpresa'] ?>">
-        <input type="hidden" name="nitEmprAntiguo" value="<?php echo $datosEmpresa['nit'] ?>">
+        <input type="hidden" name="idHorario" value="<?php echo $_REQUEST['idHorario'] ?>">
+
         <table border=1px>
 
 
             <tr>
-            <input type="time" id="appt" name="appt"
+            <input type="time" id="appt" name="horario"
        min="07:00" max="18:00" required>
 
           

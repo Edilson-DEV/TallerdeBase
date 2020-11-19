@@ -86,7 +86,7 @@ $listaDeusuarios = $objLNListaUsuario->listaDeUsuarios();
             <div class="row">
               <div class="col-md-10"></div>
               <div class="col-md-2">
-               <a href="IURegistroUsuario.php"> <button type="button"  class="btn btn-success">Añadir</button></a>
+             <!--  <a href="IURegistroUsuario.php"> <button type="button"  class="btn btn-success">Añadir</button></a>-->
               </div>
             </div>
 
@@ -119,7 +119,7 @@ $listaDeusuarios = $objLNListaUsuario->listaDeUsuarios();
                   <td><?php echo($usuario['idMesa']); ?></td>
                   <td><?php echo($usuario['hora']); ?></td>
                   <td>
-                  <a class="btn btn-info" href="IUActualizarUsuario.php">Editar</a>
+                  <a class="btn btn-info" href="IUActualizarUsuario.php?idHorario=<?php echo $usuario['idHorario']; ?>">Editar</a>
                   </td>
                   <td><a href="../Controlador/LNEliminarUsuario.php?idUsuario=<?php echo $usuario['idUsuario']; ?>" class="btn btn-outline-danger">Eliminar</a></td>
 

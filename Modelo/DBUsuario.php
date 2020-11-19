@@ -67,6 +67,18 @@ class DBUsuario
         }
 
     }
+    public function ActualizarHora($idHorario,$hora){
+
+        $sql="UPDATE hora SET hora=$hora WHERE idHorario=$idHorario ";
+        
+        $cmd = $this->conexion->prepare($sql);
+        
+        if ($cmd->execute()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 ?>
 <br><h3 title="Volver Lista de Usuarios"><a href="../Vista/about.php">Lista de Usuarios</a></h3>
